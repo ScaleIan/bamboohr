@@ -60,6 +60,8 @@ const (
 	PhotoUploaded                    = "PhotoUploaded"
 	PhotoURL                         = "PhotoURL"
 	CanUploadPhoto                   = "CanUploadPhoto"
+	HireDate                         = "HireDate"
+	ReportingTo                      = "Reporting to"
 )
 
 // Employee represents a single person
@@ -108,12 +110,14 @@ func (c *Client) GetEmployee(ctx context.Context, id string, fields ...EmployeeF
 	if err != nil {
 		return employee, err
 	}
-	ef := EmployeeFields{DisplayName, FirstName, LastName, PreferredName, Gender, JobTitle, WorkPhone, MobilePhone, WorkEmail, Department, Location, Division, LinkedIn, WorkPhoneExtension, PhotoUploaded, PhotoURL, CanUploadPhoto}
+	ef := EmployeeFields{}
 	if len(fields) > 0 {
 		ef = EmployeeFields{}
 		for _, field := range fields {
 			ef = append(ef, field)
 		}
+	} else {
+		ef = EmployeeFields{DisplayName, FirstName, LastName, PreferredName, Gender, JobTitle, WorkPhone, MobilePhone, WorkEmail, Department, Location, Division, LinkedIn, WorkPhoneExtension, PhotoUploaded, PhotoURL, CanUploadPhoto, HireDate, ReportingTo}
 	}
 	q := req.URL.Query()
 	q.Add("fields", ef.Join(","))

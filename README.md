@@ -1,5 +1,7 @@
 # Bamboo HR Go Library 
 
+This is a fork of github.com/darrenparkinson/bamboohr, made with the express purpose of adding some custom fields to the employee data model in order to better suit the desired use case.
+
 [![GoDoc](https://godoc.org/github.com/darrenparkinson/bamboohr?status.svg)](https://godoc.org/github.com/darrenparkinson/bamboohr)
 [![PkgGoDev](https://pkg.go.dev/badge/darrenparkinson/bamboohr)](https://pkg.go.dev/github.com/darrenparkinson/bamboohr)
 [![Go Report Card](https://goreportcard.com/badge/github.com/darrenparkinson/bamboohr)](https://goreportcard.com/report/github.com/darrenparkinson/bamboohr)
@@ -10,7 +12,7 @@ This is a simple Go library to utilise the [Bamboo HR API](https://documentation
 
 To get the library, simply:
 
-> `go get github.com/darrenparkinson/bamboohr`
+> `go get github.com/ScaleIan/bamboohr`
 
 
 ## Using the Library
@@ -22,7 +24,7 @@ To get an API Key, follow the instructions on the [Bamboo HR site](https://docum
 > *To generate an API key, users should log in and click their name in the upper right-hand corner of any page to get to the user context menu. If they have sufficient permissions, there will be an "API Keys" option in that menu to go to the page.*
 
 Your company domain is the part before bamboohr.com, so for `https://acmecorp.bamboohr.com` it would be `acmecorp`.
-
+ß
 ```go
 package main
 
@@ -30,7 +32,7 @@ import (
     "log"
     "os"
 
-    "github.com/darrenparkinson/bamboohr"
+    "github.com/ScaleIan/bamboohr"
 )
 
 func main() {
