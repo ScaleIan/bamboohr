@@ -1,4 +1,4 @@
-module github.com/darrenparkinson/bamboohr
+module github.com/ScaleIan/bamboohr
 
 go 1.15
 
