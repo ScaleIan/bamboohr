@@ -84,6 +84,7 @@ type Employee struct {
 	PhotoUploaded      *bool // to avoid false when it's empty
 	PhotoURL           string
 	CanUploadPhoto     *int // to avoid 0 when it's empty
+	HireDate           string
 }
 
 // GetEmployeeDirectory returns a list of employees
@@ -117,7 +118,7 @@ func (c *Client) GetEmployee(ctx context.Context, id string, fields ...EmployeeF
 			ef = append(ef, field)
 		}
 	} else {
-		ef = EmployeeFields{DisplayName, FirstName, LastName, PreferredName, Gender, JobTitle, WorkPhone, MobilePhone, WorkEmail, Department, Location, Division, LinkedIn, WorkPhoneExtension, PhotoUploaded, PhotoURL, CanUploadPhoto, HireDate, ReportingTo}
+		ef = EmployeeFields{DisplayName, FirstName, LastName, PreferredName, Gender, JobTitle, WorkPhone, MobilePhone, WorkEmail, Department, Location, Division, LinkedIn, WorkPhoneExtension, PhotoUploaded, PhotoURL, CanUploadPhoto, HireDate}
 	}
 	q := req.URL.Query()
 	q.Add("fields", ef.Join(","))

@@ -24,7 +24,7 @@ To get an API Key, follow the instructions on the [Bamboo HR site](https://docum
 > *To generate an API key, users should log in and click their name in the upper right-hand corner of any page to get to the user context menu. If they have sufficient permissions, there will be an "API Keys" option in that menu to go to the page.*
 
 Your company domain is the part before bamboohr.com, so for `https://acmecorp.bamboohr.com` it would be `acmecorp`.
-ß
+
 ```go
 package main
 
