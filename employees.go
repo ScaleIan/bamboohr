@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"net/http"
 	"strings"
+
+	"gopkg.in/errgo.v2/errors"
 )
 
 // EmployeeResponse is the top level response from the API
@@ -130,6 +132,10 @@ func (c *Client) GetEmployeeByEmail(ctx context.Context, email string, fields ..
 			id = directory[i].ID
 			break
 		}
+	}
+
+	if len(id) == 0 {
+		return employee, errors.New("No employee found")
 	}
 
 	return c.GetEmployee(ctx, id, fields...)
