@@ -102,6 +102,21 @@ func (c *Client) GetEmployeeDirectory(ctx context.Context) ([]Employee, error) {
 	return er.Employees, nil
 }
 
+// GetEmployeeIDByEmail retrieves a specific employee ID from the directory of all available employees
+func (c *Client) GetEmployeeIDByEmail(email string) (string, error) {
+	directory, err := c.GetEmployeeDirectory(context.TODO())
+	if err != nil {
+		return "", err
+	}
+	for i, _ := range directory {
+		if directory[i].WorkEmail == email {
+			return directory[i].ID, nil
+		}
+	}
+
+	return "", nil
+}
+
 // GetEmployee retrieves a specific employee by ID and allows the caller to specify fields.
 // All fields are returned if none are specified.
 func (c *Client) GetEmployee(ctx context.Context, id string, fields ...EmployeeField) (Employee, error) {
